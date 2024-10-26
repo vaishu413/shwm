@@ -1,0 +1,58 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Health & Wellness Monitoring System</title>
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Smart Health & Wellness</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Monitor Your Health, Anytime & Anywhere</h2>
+            <p>Stay on top of your wellness with real-time data and intelligent insights.</p>
+            <a href="{% url 'login' %}" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>Our smart health and wellness system is designed to help you track and improve your health with ease. With advanced technology and a user-friendly interface, you can monitor vital signs, track wellness goals, and receive personalized recommendations.</p>
+    </section>
+
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3>Heart Rate Monitoring</h3>
+                <p>Track your heart rate in real-time and get notified of any unusual patterns.</p>
+            </div>
+            <div class="service-card">
+                <h3>Sleep Analysis</h3>
+                <p>Monitor your sleep quality and get personalized tips to improve your rest.</p>
+            </div>
+            <div class="service-card">
+                <h3>Activity Tracking</h3>
+                <p>Track your daily activity levels, set fitness goals, and stay motivated.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Smart Health & Wellness Monitoring System | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
