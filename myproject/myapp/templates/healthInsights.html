@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insights</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        main h2 {
+            color: #00796b;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"], textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #00574b;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border-left: 4px solid #00796b;
+            border-radius: 5px;
+        }
+
+        .results h3 {
+            margin: 0 0 10px;
+            color: #00796b;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Health Insights</h1>
+        <p>Analyze your health data from wearable devices</p>
+    </header>
+    <main>
+        <h2>Enter Your Health Parameters</h2>
+        <form id="healthForm" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="heartRate">Heart Rate (BPM):</label>
+                <input type="number" id="heartRate" name="heart_rate" placeholder="e.g., 75" required>
+            </div>
+            <div>
+                <label for="oxygenLevel">Oxygen Saturation (%):</label>
+                <input type="number" id="oxygenLevel" name="oxygen_level" placeholder="e.g., 98" required>
+            </div>
+            <div>
+                <label for="bloodPressure">Blood Pressure (mmHg):</label>
+                <input type="text" id="bloodPressure" name="blood_pressure" placeholder="e.g., 120/80" required>
+            </div>
+            <div>
+                <label for="bodyTemp">Body Temperature (°C):</label>
+                <input type="number" id="bodyTemp" name="body_temperature" placeholder="e.g., 36.5" step="0.1" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if analysis %}
+        <div class="results">
+            <h3>Analysis Results:</h3>
+            <p>{{ analysis }}</p>
+        </div>
+        {% endif %}
+    </main>
+    <footer>
+        <p>Smart Health Monitoring System © 2024</p>
+    </footer>
+</body>
+</html>
